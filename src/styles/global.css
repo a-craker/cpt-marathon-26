@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #E6EAEE;
+  --color-card: #F3F5F7;
+  --color-ink: #101922;
+  --color-graphite: #5C6873;
+  --color-rule: #C7CFD6;
+  --color-signal: #14548F;
+  --color-flare: #BF3A18;
+  --color-vis: #B9CE1F;
+
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-serif: "Literata", Georgia, serif;
+}
