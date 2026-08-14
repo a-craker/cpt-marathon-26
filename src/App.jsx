@@ -42,12 +42,12 @@ export default function App() {
       <SectionNav sections={SECTIONS} />
       <Masthead />
       <main className="max-w-[1060px] mx-auto px-6 pb-24">
-        <p className="font-mono text-[11.5px] tracking-[.2em] uppercase text-flare mb-5">
-          Cape Town Marathon 2026
-        </p>
         <h1 className="font-display font-extrabold text-[clamp(38px,7.2vw,74px)] leading-[.97] tracking-[-.022em] mb-6 max-w-[15ch]">
           <em className="not-italic text-flare">Race Analysis:</em> 2026 Cape Town Marathon
         </h1>
+        <p className="font-mono text-[11.5px] tracking-[.2em] uppercase text-flare mb-5">
+          Written By Aidan Craker
+        </p>
         <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-graphite max-w-[56ch] mb-10">
           Placeholder 
         </p>
