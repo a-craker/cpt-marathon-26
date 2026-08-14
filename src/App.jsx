@@ -7,6 +7,7 @@ import HeroSpaghetti from "./charts/HeroSpaghetti";
 // SECTION 1
 import FinishHistogram from "./charts/FinishHistogram";
 import CategoryPyramid from "./charts/CategoryPyramid";
+import CountryFlagBars from "./charts/CountryFlagBars";
 // SECTION 2
 import PercentileCurve from "./charts/PercentileCurve";
 // SECTION 3
@@ -63,6 +64,16 @@ export default function App() {
 
         <Section id="turnout"   num="01" title="Who actually turned up">
           <p className="max-w-[646px]">Placeholder copy.</p>
+
+          <Figure
+            title="Finishers by country"
+            meta="138 countries"
+            caption="Share of the full field, including South Africa. Search by IOC code, or exclude South Africa to rescale the bars."
+            className="col-span-full"
+          >
+            <CountryFlagBars />
+          </Figure>
+
           <Figure
             title="Finish times, 5-minute bins"
             meta="18,523 finishers"
