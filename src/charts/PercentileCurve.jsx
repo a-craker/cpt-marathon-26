@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import pcts from "../data/percentiles.json";
 import summary from "../data/summary.json";
 import { scaleLinear, line } from "../lib/chart";
@@ -19,8 +19,18 @@ const parseTime = (str) => {
   return +m[1] * 3600 + +m[2] * 60 + (+m[3] || 0);
 };
 
+// seconds -> "h:mm:ss", so dragged values round-trip through parseTime
+const fmtHMS = (s) => {
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = Math.round(s % 60);
+  return `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+};
+
 export default function PercentileCurve() {
   const [input, setInput] = useState("3:45:00");
+  const [dragging, setDragging] = useState(false);
+  const svgRef = useRef(null);
 
   const { series, marks, sx, sy, x0, x1, pctAt } = useMemo(() => {
     const ts = pcts.map((d) => d.t);
@@ -53,10 +63,32 @@ export default function PercentileCurve() {
     return { series, marks, sx, sy, x0, x1, pctAt };
   }, []);
 
-  // derive finder state from input
+  // derive finder state from input (unchanged — dragging writes into `input`)
   const t = parseTime(input);
   const inRange = t != null && t >= x0 && t <= x1;
   const userPct = inRange ? pctAt(t) : null;
+
+  // --- drag handling -------------------------------------------------------
+  // Inverse of sx: pointer clientX -> time in seconds, clamped to the domain.
+  const clientToTime = (e) => {
+    const rect = svgRef.current.getBoundingClientRect();
+    const px = ((e.clientX - rect.left) / rect.width) * W; // viewBox units
+    const frac = (px - M.l) / (W - M.l - M.r);
+    const tt = x0 + frac * (x1 - x0);
+    return Math.round(Math.max(x0, Math.min(x1, tt)));
+  };
+
+  const onPointerDown = (e) => {
+    e.preventDefault();
+    e.currentTarget.setPointerCapture(e.pointerId);
+    setDragging(true);
+    setInput(fmtHMS(clientToTime(e)));
+  };
+  const onPointerMove = (e) => {
+    if (dragging) setInput(fmtHMS(clientToTime(e)));
+  };
+  const onPointerEnd = () => setDragging(false);
+  // -------------------------------------------------------------------------
 
   let output;
   if (t == null) output = <small className="font-mono text-xs text-graphite">Use h:mm or h:mm:ss</small>;
@@ -97,7 +129,12 @@ export default function PercentileCurve() {
         </output>
       </div>
 
-      <svg viewBox={`0 0 ${W} ${H}`} className="block w-full h-auto overflow-visible">
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${W} ${H}`}
+        className="block w-full h-auto overflow-visible"
+        style={{ touchAction: "none" }}
+      >
         {[0, 25, 50, 75, 100].map((v) => (
           <g key={v}>
             <line x1={M.l} x2={W - M.r} y1={sy(v)} y2={sy(v)}
@@ -132,10 +169,10 @@ export default function PercentileCurve() {
 
         {/* user marker */}
         {inRange && (
-          <g>
+          <g pointerEvents="none">
             <line x1={sx(t)} x2={sx(t)} y1={M.t} y2={H - M.b}
               stroke="var(--color-vis)" strokeWidth="2" />
-            <circle cx={sx(t)} cy={sy(userPct)} r="5"
+            <circle cx={sx(t)} cy={sy(userPct)} r={dragging ? 6.5 : 5}
               fill="var(--color-vis)" stroke="var(--color-ink)" strokeWidth="1.4" />
           </g>
         )}
@@ -159,6 +196,18 @@ export default function PercentileCurve() {
           style={{ letterSpacing: ".16em" }}>
           FINISH TIME
         </text>
+
+        {/* drag surface: press or drag anywhere in the plot to move the marker */}
+        <rect
+          x={M.l} y={M.t}
+          width={W - M.l - M.r} height={H - M.t - M.b}
+          fill="transparent"
+          style={{ cursor: dragging ? "grabbing" : "ew-resize" }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerEnd}
+          onPointerCancel={onPointerEnd}
+        />
       </svg>
     </div>
   );
