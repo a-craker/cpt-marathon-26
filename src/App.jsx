@@ -5,6 +5,7 @@ import Section from "./components/Section";
 import Figure from "./components/Figure";
 import CensusGrid from "./charts/CensusGrid";
 // SECTION 1
+import StatusBar from "./charts/StatusBar";
 import FinishHistogram from "./charts/FinishHistogram";
 import CategoryPyramid from "./charts/CategoryPyramid";
 import CountryFlagBars from "./charts/CountryFlagBars";
@@ -54,7 +55,7 @@ export default function App() {
 
         <Figure
           title="Every dot represents one of the 18,523 finishers"
-          meta="18,523 finishers"
+          meta="18,523* finishers"
           caption="Each dot represents one single runner, starting from the fastest marathon run on African soil through to the 18,523rd finisher"
         >
           <CensusGrid />
@@ -64,6 +65,15 @@ export default function App() {
 
         <Section id="turnout"   num="01" title="Who actually turned up">
           <p className="max-w-[646px]">Placeholder copy.</p>
+
+          <Figure
+            full
+            title="Who was on the results page"
+            meta={`${/* total */ ""} listed`}
+            caption="Everyone the results page lists, by what actually happened on the day. Unregistered are entries with no finishing position recorded at all."
+          >
+            <StatusBar />
+          </Figure>          
 
           <Figure
             title="Finishers by country"
