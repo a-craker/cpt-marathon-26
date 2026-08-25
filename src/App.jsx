@@ -3,7 +3,7 @@ import Masthead from "./components/Masthead";
 import StatStrip from "./components/StatStrip";
 import Section from "./components/Section";
 import Figure from "./components/Figure";
-import HeroSpaghetti from "./charts/HeroSpaghetti";
+import CensusGrid from "./charts/CensusGrid";
 // SECTION 1
 import FinishHistogram from "./charts/FinishHistogram";
 import CategoryPyramid from "./charts/CategoryPyramid";
@@ -53,11 +53,11 @@ export default function App() {
         </p>
 
         <Figure
-          title="Pace per segment, % of own average"
-          meta="500 finishers sampled"
-          caption="Each line is one runner's pace in each segment, as a percentage of their own average. Above the centre line is slower than their own average; below is faster."
+          title="Every dot represents one of the 18,523 finishers"
+          meta="18,523 finishers"
+          caption="Each dot represents one single runner, starting from the fastest marathon run on African soil through to the 18,523rd finisher"
         >
-          <HeroSpaghetti />
+          <CensusGrid />
         </Figure>
 
         <StatStrip />
