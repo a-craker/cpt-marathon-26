@@ -49,10 +49,10 @@ export default function App() {
         <p className="font-mono text-[11.5px] tracking-[.2em] uppercase text-flare mb-5">
           Written By Aidan Craker
         </p>
-        <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-graphite max-w-[56ch] mb-10">
-          Placeholder 
+      <section className="max-w-5xl mx-auto px-6 py-12">
+        <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-black max-w-[72ch] mb-10">
+          The 2026 Cape Town Marathon was a weekend full of notable results. Mohammed Esa ran the fastest marathon ever recorded on African soil, more than 18,500 runners finished the marathon, and Cape Town was named the eighth Abbott World Marathon Major. The depth of the men’s race was equally significant, with the first ten finishers all running faster than the previous course record. With so much happening in a single edition of the race, I wanted to go beyond the headline performances and look more closely at what the results reveal about the field as a whole.
         </p>
-
         <Figure
           title="Every dot represents one of the 18,523 finishers"
           meta="18,523* finishers"
@@ -60,6 +60,33 @@ export default function App() {
         >
           <CensusGrid />
         </Figure>
+
+        <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-black max-w-[72ch] mb-6">
+          Using data scraped from the official timekeeping website, SportSplits, I break down:
+        </p>
+
+        <ol className="max-w-[72ch] mb-10 space-y-3 list-decimal pl-12 text-[clamp(17px,2vw,20px)] leading-normal text-neutral-900">
+          <li>
+            who turned up on race day, including the demographics of the field and the distribution of finishing times
+          </li>
+          <li>
+            where a given finishing time would have placed you relative to the rest of the field
+          </li>
+          <li>
+            how runners actually paced the race across different finishing segments
+          </li>
+          <li>
+            where the marathon wall begins to show up in the data, and what an aggressive start tends to cost later
+          </li>
+          <li>
+            which runners paced their races particularly well
+          </li>
+        </ol>
+
+        <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-black max-w-[72ch]">
+          I finish with a brief discussion of the methods used, along with the main limitations and caveats in the data. What follows is a more detailed look at these questions through the results themselves, supported by comparisons and visualisations.
+        </p>
+      </section>
 
         <StatStrip />
 
