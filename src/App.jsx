@@ -50,40 +50,40 @@ export default function App() {
           Written By Aidan Craker
         </p>
       <section className="max-w-5xl mx-auto px-6 py-12">
-        <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-black max-w-[72ch] mb-10">
+        <p className="text-[18px] leading-normal text-black max-w-none mb-10">
           The 2026 Cape Town Marathon was a weekend full of notable results. Mohammed Esa ran the fastest marathon ever recorded on African soil, more than 18,500 runners finished the marathon, and Cape Town was named the eighth Abbott World Marathon Major. The depth of the men’s race was equally significant, with the first ten finishers all running faster than the previous course record. With so much happening in a single edition of the race, I wanted to go beyond the headline performances and look more closely at what the results reveal about the field as a whole.
         </p>
         <Figure
           title="Every dot represents one of the 18,523 finishers"
-          meta="18,523* finishers"
-          caption="Each dot represents one single runner, starting from the fastest marathon run on African soil through to the 18,523rd finisher"
+          meta="18,523 finishers"
+          caption="Each dot is coloured according to its finishing time segment, with callouts for a few notable runners: race winner Huseyidin Mohamed Esa, who ran the fastest marathon ever recorded on African soil; Eliud Kipchoge, the GOAT; women’s winner Dera Dida Yami; and two friends of mine who also took on the marathon, Finn and Lau."
         >
           <CensusGrid />
         </Figure>
 
-        <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-black max-w-[72ch] mb-6">
-          Using data scraped from the official timekeeping website, SportSplits, I break down:
+        <p className="text-[18px] leading-normal text-black max-w-none mb-6">
+          Using data scraped from the official timekeeping website, SportSplits, a few things I looked at include:
         </p>
 
-        <ol className="max-w-[72ch] mb-10 space-y-3 list-decimal pl-12 text-[clamp(17px,2vw,20px)] leading-normal text-neutral-900">
+        <ol className="max-w-[72ch] mb-8 space-y-3 list-decimal pl-12 text-[18px] leading-normal text-neutral-900">
           <li>
-            who turned up on race day, including the demographics of the field and the distribution of finishing times
+            Who turned up on race day? A look at starters, non starters and DNFs, alongside the demographic profile of the field and the overall distribution of finishing times.
           </li>
           <li>
-            where a given finishing time would have placed you relative to the rest of the field
+            How a given finishing time would have placed you relative to the field, and the goal times runners were chasing.
           </li>
           <li>
-            how runners actually paced the race across different finishing segments
+            How the race was actually run across different finishing time groups.
           </li>
           <li>
-            where the marathon wall begins to show up in the data, and what an aggressive start tends to cost later
+            Where the marathon wall begins to show up in the data, and what an aggressive start tends to cost later.
           </li>
           <li>
-            which runners paced their races particularly well
+            Which runners paced their races particularly well.
           </li>
         </ol>
 
-        <p className="text-[clamp(18px,2.1vw,21px)] leading-normal text-black max-w-[72ch]">
+        <p className="text-[18px] leading-normal text-black max-w-none">
           I finish with a brief discussion of the methods used, along with the main limitations and caveats in the data. What follows is a more detailed look at these questions through the results themselves, supported by comparisons and visualisations.
         </p>
       </section>
@@ -91,13 +91,19 @@ export default function App() {
         <StatStrip />
 
         <Section id="turnout"   num="01" title="Who actually turned up">
-          <p className="max-w-[646px]">Placeholder copy.</p>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            In an official press release, Cape Town Marathon Media said they were expecting 27,000 runners to line up on Sunday, 24 May. SportSplits, however, records 24,268 runners as registered for the marathon. Of those, 5,374, or 22%, did not start, while a further 371 started but did not finish. That leaves 18,523 recorded finishers crossing the line near Green Point Stadium, around 12% more than in 2024.
+          </p>
+          
+          <p className="w-full max-w-none italic">
+            A note on the totals: SportSplits lists 18,526 finishers, but three finishing positions, 998, 1204 and 4566, are missing from the underlying records. For the analysis that follows, I therefore use 18,523 as the total number of finishers.
+          </p>
 
           <Figure
             full
             title="Who was on the results page"
             meta={`${/* total */ ""} listed`}
-            caption="Everyone the results page lists, by what actually happened on the day. Unregistered are entries with no finishing position recorded at all."
+            caption=""
           >
             <StatusBar />
           </Figure>          

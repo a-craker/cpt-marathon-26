@@ -11,7 +11,7 @@ export default function Figure({ title, meta, caption, children }) {
       </div>
       {children}
       {caption && (
-        <figcaption className="font-mono text-[11.5px] leading-relaxed text-graphite mt-3 max-w-[70ch]">
+        <figcaption className="font-mono text-[11.5px] leading-relaxed text-graphite mt-3 max-w-none w-full">
           {caption}
         </figcaption>
       )}
