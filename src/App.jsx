@@ -51,7 +51,7 @@ export default function App() {
         </p>
       <section className="max-w-5xl mx-auto px-6 py-12">
         <p className="text-[18px] leading-normal text-black max-w-none mb-10">
-          The 2026 Cape Town Marathon was a weekend full of notable results. Mohammed Esa ran the fastest marathon ever recorded on African soil, more than 18,500 runners finished the marathon, and Cape Town was named the eighth Abbott World Marathon Major. The depth of the men’s race was equally significant, with the first ten finishers all running faster than the previous course record. With so much happening in a single edition of the race, I wanted to go beyond the headline performances and look more closely at what the results reveal about the field as a whole.
+          The 2026 Cape Town Marathon was a weekend full of notable results. Mohammed Esa ran the fastest marathon ever recorded on African soil, more than 18,500 runners finished the marathon, and Cape Town was named the eighth Abbott World Marathon Major. The depth of the men’s race was equally significant, with the first ten finishers all running faster than the previous course record. With so much happening in a single edition of the race, I wanted to look more closely at what the results reveal about the field as a whole.
         </p>
         <Figure
           title="Every dot represents one of the 18,523 finishers"
@@ -65,7 +65,7 @@ export default function App() {
           Using data scraped from the official timekeeping website, SportSplits, a few things I looked at include:
         </p>
 
-        <ol className="max-w-[72ch] mb-8 space-y-3 list-decimal pl-12 text-[18px] leading-normal text-neutral-900">
+        <ol className="max-w-none mb-8 space-y-3 list-decimal pl-12 text-[18px] leading-normal text-neutral-900">
           <li>
             Who turned up on race day? A look at starters, non starters and DNFs, alongside the demographic profile of the field and the overall distribution of finishing times.
           </li>
@@ -92,11 +92,11 @@ export default function App() {
 
         <Section id="turnout"   num="01" title="Who actually turned up">
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            In an official press release, Cape Town Marathon Media said they were expecting 27,000 runners to line up on Sunday, 24 May. SportSplits, however, records 24,268 runners as registered for the marathon. Of those, 5,374, or 22%, did not start, while a further 371 started but did not finish. That leaves 18,523 recorded finishers crossing the line near Green Point Stadium, around 12% more than in 2024.
+            In an official press release, Cape Town Marathon Media shared that they were expecting 27,000 runners to line up on Sunday, 24 May. SportSplits, however, records 24,268 runners as registered for the marathon. Of those, 5,374, or 22%, did not start, while a further 371 started but did not finish. That leaves 18,523 recorded finishers crossing the line near Green Point Stadium, around 12% more than in 2024.
           </p>
           
           <p className="w-full max-w-none italic">
-            A note on the totals: SportSplits lists 18,526 finishers, but three finishing positions, 998, 1204 and 4566, are missing from the underlying records. For the analysis that follows, I therefore use 18,523 as the total number of finishers.
+            Note: SportSplits lists 18,526 finishers, but three finishing positions, <strong>9927</strong>, <strong>14242</strong> and <strong>15708</strong>, are missing from the underlying records. For the analysis that follows, I therefore use 18,523 as the total number of finishers.
           </p>
 
           <Figure
@@ -108,6 +108,12 @@ export default function App() {
             <StatusBar />
           </Figure>          
 
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Of those 18,523 finishers in this year's Cape Town Marathon, South Africans made up two-thirds, but the remaining <strong>34%</strong> came from 138 countries across all parts of the world.
+            One runner was even registered in Antarctica. With Cape Town securing status as the 8th Abbott World Marathon Major, those non-South African numbers should climb sharply by the 2027 edition.
+            The chart below lists finishers by country in descending order, which you can flip through.
+          </p>
+
           <Figure
             title="Finishers by country"
             meta="138 countries"
@@ -116,6 +122,12 @@ export default function App() {
           >
             <CountryFlagBars />
           </Figure>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Looking at the high level finish times through a distribution of runners in 5 minute bins, across all genders and finish time categories, three notable spikes appear around the round numbers
+            most of us chase as marathon goals, with the sharpest jump at the 4 hour mark (we'll look into this in a bit more in the next section). The median finish across all finishers was <strong>4:33:09</strong>, just
+            20 seconds off the <strong>4:32:49</strong> average time to run a marathon that <a href="https://www.brooksrunning.com/en_es/blog/advice-tips/average-marathon-time.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">RunRepeat</a> compiled from 107.9 million race results.
+          </p>
 
           <Figure
             title="Finish times, 5-minute bins"
