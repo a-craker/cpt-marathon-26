@@ -51,7 +51,9 @@ export default function App() {
         </p>
       <section className="max-w-5xl mx-auto px-6 py-12">
         <p className="text-[18px] leading-normal text-black max-w-none mb-10">
-          The 2026 Cape Town Marathon was a weekend full of notable results. Mohammed Esa ran the fastest marathon ever recorded on African soil, more than 18,500 runners finished the marathon, and Cape Town was named the eighth Abbott World Marathon Major. The depth of the men’s race was equally significant, with the first ten finishers all running faster than the previous course record. With so much happening in a single edition of the race, I wanted to look more closely at what the results reveal about the field as a whole.
+          The 2026 Cape Town Marathon was a weekend full of notable results. Cape Town was named the eighth Abbott World Marathon Major, Mohammed Esa ran the fastest marathon ever recorded on 
+          African soil, and the depth of the men's race was equally significant, with the first ten finishers all running faster than the previous course record. On top of that, more than 18,500 
+          runners finished the marathon. With so much happening in a single edition of the race, I wanted to look more closely at what the results reveal about the field as a whole.
         </p>
         <Figure
           title="Every dot represents one of the 18,523 finishers"
@@ -62,12 +64,12 @@ export default function App() {
         </Figure>
 
         <p className="text-[18px] leading-normal text-black max-w-none mb-6">
-          Using data scraped from the official timekeeping website, SportSplits, a few things I looked at include:
+          Using data scraped from the official timekeeping website, <a href="https://www.sportsplits.com/races/sanlam-cape-town-marathon-2026/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">SportSplits</a>, a few things I looked at include:
         </p>
 
         <ol className="max-w-none mb-8 space-y-3 list-decimal pl-12 text-[18px] leading-normal text-neutral-900">
           <li>
-            Who turned up on race day? A look at starters, non starters and DNFs, alongside the demographic profile of the field and the overall distribution of finishing times.
+            Who turned up on race day? A look at starters, non starters and DNFs, alongside the demographic profile of the finishing field and the overall distribution of finishing times.
           </li>
           <li>
             How a given finishing time would have placed you relative to the field, and the goal times runners were chasing.
@@ -154,6 +156,19 @@ export default function App() {
           >
             <PercentileCurve />
           </Figure>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Looking at the high level finish times through a distribution of runners in 5 minute bins, across all genders and finish time categories, three notable spikes appear around the round numbers
+          </p>
+
+          <Figure
+            title="Finish times, 1-minute bins"
+            meta="Red = 2 min before a barrier"
+            caption="Dashed lines mark the classic barriers. The red bars are the runners who found something in the last two minutes."
+          >
+            <BarrierBunching />
+          </Figure>
+
         </Section>
 
         <Section id="pacing" num="03" title="How the race was actually run">
@@ -220,13 +235,13 @@ export default function App() {
 
         <Section id="barriers" num="07" title="Chasing round numbers">
           <p className="max-w-[646px]">Placeholder copy.</p>
-          <Figure
+          {/* <Figure
             title="Finish times, 1-minute bins"
             meta="Red = 2 min before a barrier"
             caption="Dashed lines mark the classic barriers. The red bars are the runners who found something in the last two minutes."
           >
             <BarrierBunching />
-          </Figure>
+          </Figure> */}
         </Section>
         <Section id="method" num="08" title="Methods & Caveats">
         </Section>
