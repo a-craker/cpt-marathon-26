@@ -233,16 +233,6 @@ export default function App() {
         </div>
         </Section>
 
-        <Section id="barriers" num="07" title="Chasing round numbers">
-          <p className="max-w-[646px]">Placeholder copy.</p>
-          {/* <Figure
-            title="Finish times, 1-minute bins"
-            meta="Red = 2 min before a barrier"
-            caption="Dashed lines mark the classic barriers. The red bars are the runners who found something in the last two minutes."
-          >
-            <BarrierBunching />
-          </Figure> */}
-        </Section>
         <Section id="method" num="08" title="Methods & Caveats">
         </Section>
       </main>
