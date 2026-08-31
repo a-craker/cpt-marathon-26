@@ -149,6 +149,17 @@ export default function App() {
         </Section>
 
         <Section id="placing" num="02" title="Where your time would have placed you">
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          A pretty neat way to visualise the field is by plotting the cumulative distribution of finish times. Reading the chart vertically, the black line shows the overall field, 
+          while the blue and red lines show the male and female distributions respectively. Drag the yellow dot along the black line, or enter an expected finish time, to see what 
+          percentile and approximate finishing position that time would have produced in this year's race.
+          </p>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          The chart also makes the gaps between the distributions quite clear. Around the middle of the field, a 4:30 finish sits close to the 48th percentile overall, while 4:00 
+          is around the 31st and 5:00 around the 67th. The separation between the male and female curves is largest through much of the middle of the distribution, before narrowing 
+          again towards the slower end of the field.
+          </p>
           {/* finder, percentile curve */}
           <Figure
             title="Finish time by percentile"
@@ -158,8 +169,10 @@ export default function App() {
           </Figure>
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            Looking at the high level finish times through a distribution of runners in 5 minute bins, across all genders and finish time categories, three notable spikes appear around the round numbers
+            Breaking the finishers down into one minute bins makes the pull of the round number targets much more clear. The biggest spikes appear just before the 3:00, 3:30, 4:00, 
+            4:30 and 5:00 barriers, with the final two minutes before each cutoff highlighted in red.
           </p>
+
 
           <Figure
             title="Finish times, 1-minute bins"
@@ -168,11 +181,19 @@ export default function App() {
           >
             <BarrierBunching />
           </Figure>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Across those barriers, 6.6% of all finishers crossed the line in the final two minutes before a cutoff. Widen that window to three minutes and the share rises to 9.9%, 
+            which gives a good sense of how many runners were squeezing out just enough in the closing stages to get under a target time.
+          </p>
 
         </Section>
 
         <Section id="pacing" num="03" title="How the race was actually run">
-          <p className="max-w-[646px]">Placeholder copy.</p>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Across all 18,523 finishers, 17,671 had every split recorded across the entire race. The actual pace chart shows the average segment pace for each 
+            finishing band in minutes per kilometre, while the normalised chart shows each segment as a <strong>percentage of that group's overall average pace</strong>, making 
+            it easier to compare pacing patterns across groups.
+          </p>
           <Figure
             title="Segment pace by finishing band"
             meta={/* mode-aware meta lives in the toggle chart's axis label instead */ "six bands"}
@@ -180,6 +201,15 @@ export default function App() {
           >
             <SegmentByBand />
           </Figure>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Across every finishing band, the first 20km was run quicker than average, followed by a gradual slowdown that becomes much sharper after 25km. This 
+            effect is strongest among the slower groups, with the 5:00+ runners moving from around 87% of average pace in the opening 5km to roughly 112% between 
+            30 and 35km.
+          </p>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            The faster groups were more consistent, but nobody escaped the late slowdown. By the final segment, all six bands had converged to roughly 107% to 109% 
+            of their own average pace, suggesting that the final few kilometre segments imposed a similar relative cost across the field.
+          </p>
         </Section>
 
         <Section id="wall" num="04" title="Finding the wall">
