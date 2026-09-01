@@ -207,7 +207,7 @@ export default function App() {
             30 and 35km.
           </p>
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            The faster groups were more consistent, but nobody escaped the late slowdown. By the final segment, all six bands had converged to roughly 107% to 109% 
+            The faster groups were more consistent, but on average, no finishing segment escaped the late slowdown. By the final segment, all six bands had converged to roughly 107% to 109% 
             of their own average pace, suggesting that the final few kilometre segments imposed a similar relative cost across the field.
           </p>
         </Section>
