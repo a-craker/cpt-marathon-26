@@ -281,15 +281,24 @@ export default function App() {
         </Section>
 
         <Section id="splits" num="06" title="Most runners positive-split">
-          <p className="max-w-[646px]">Placeholder copy.</p>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          A negative split means running the second half of the marathon faster than the first, and is generally a useful measure of pacing control. At this year’s Cape Town Marathon, 
+          just <strong>5.4%</strong> of finishers managed it, equivalent to 992 runners.
+          </p>
 
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          Breaking those runners down by finishing band shows a clear relationship between pace and negative split rate. Around 13.5% of sub 3 finishers ran a negative split, compared with 
+          just 1.3% of those finishing in more than five hours. Women also recorded a higher negative split rate than men in almost every finishing band, with the largest gap among sub 3 runners, 
+          where 24% of women achieved one compared with 13% of men. This suggests that, particularly among the fastest runners, women were more likely to distribute their effort evenly and leave 
+          enough in reserve for the second half.
+          </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-9 max-w-[900px] my-8">
 
           <Figure
             title="Second half minus first"
             meta="2.5-min bins"
-            caption="Blue ran the second half faster. Note how little blue there is."
+            caption="Blue ran the second half marathon faster (negative split)"
           >
             <SplitDifferential />
           </Figure>
@@ -301,13 +310,25 @@ export default function App() {
             <NegSplitRate />
           </Figure>
         </div>
-                  <Figure full
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          The same pattern becomes visible when we look at the full distribution of second half versus first half times by finishing band. Faster runners are clustered much closer to zero, 
+          while the distributions shift progressively to the right as finishing times increase.
+          </p>
+
+          <Figure full
             title="Second half minus first half, by finishing band"
             meta="1-minute bins"
             caption="Everything right of the vertical line is a positive split. The distribution both widens and shifts right as the bands slow."
           >
             <PositiveSplitByBand />
           </Figure>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          The difference is easiest to see in how each group reaches the finish. Sub 3 runners tend to stay close to their first half pace, with only a modest slowdown for most of them. However, when we look further down the field, by the 5:00+ band
+          many runners are giving away 20 to 30 minutes in the second half, and the spread is far wider. Faster finishing groups lose less time, while the slower groups experience a much more varied second half.
+          </p>
+
         </Section>
 
         <Section id="method" num="08" title="Methods & Caveats">
