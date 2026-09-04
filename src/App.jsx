@@ -167,7 +167,7 @@ export default function App() {
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
           The sub 3 data shows a more pronounced difference between genders. Among men, the share finishing under three hours is typically between 4% and 6.5%, compared with roughly 0.4% to 1.2% 
-          among women. The clearest departure comes in 2021, when 9.2% of male finishers broke three hours, well above any other year in the dataset. Given the smaller field that year, this points to 
+          among women. Remarkably in 2021, 9.2% of male finishers broke three hours, well above any previous year. Given the smaller field that year, this points to 
           a notably stronger concentration of faster male runners (that may have been doing some extensive training over COVID).
           </p>
 
@@ -222,8 +222,8 @@ export default function App() {
 
         <Section id="pacing" num="03" title="How the race was actually run">
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            Across all 18,523 finishers, 17,671 had every split recorded across the entire race. The actual pace chart shows the average segment pace for each 
-            finishing band in minutes per kilometre, while the normalised chart shows each segment as a <strong>percentage of that group's overall average pace</strong>, making 
+            Across all 18,523 finishers, 17,671 had every split recorded across the entire race. The <strong>actual pace</strong> chart shows the average segment pace for each 
+            finishing band in minutes per kilometre, while the <strong>normalised</strong> chart shows each segment as a <strong>percentage of that group's overall average pace</strong>, making 
             it easier to compare pacing patterns across groups.
           </p>
           <Figure
@@ -235,7 +235,7 @@ export default function App() {
           </Figure>
           <p className="text-[18px] leading-normal max-w-none mb-6">
             Across every finishing band, the first 20km was run quicker than average, followed by a gradual slowdown that becomes much sharper after 25km. This 
-            effect is strongest among the slower groups, with the 5:00+ runners moving from around 87% of average pace in the opening 5km to roughly 112% between 
+            effect is strongest among the slower groups, with the 5:00+ runners moving from around 87% of their average pace in the opening 5km to roughly 112% between 
             30 and 35km.
           </p>
           <p className="text-[18px] leading-normal max-w-none mb-6">
@@ -245,14 +245,28 @@ export default function App() {
         </Section>
 
         <Section id="wall" num="04" title="Finding the wall">
-          <p className="max-w-[646px]">Placeholder copy.</p>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Every marathon runner has heard of the infamous wall, the point where holding pace suddenly becomes much harder. To see where that shows up here, I compared each runner's pace across different 
+            sections of the course with their own average pace for the race - a more telling way to see the wall than the previous normalised chart.
+          </p>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            This chart compares how each finishing time band moves through the race relative to its own average pace. Negative values indicate sections run faster than average, while positive 
+            values show where runners begin to slow. For example, runners finishing between 4:30 and 5:00 are around 8% faster than their average pace between 10 and 15 km, but 12% slower between 30 and 35 km.
+          </p>
+
           <Figure
             title="Pace deviation by band and segment"
             meta="Blue faster · red slower"
-            caption="Values are percentage deviation from each runner's own average pace, averaged within band. Read down any column to see who is already in trouble at that point in the course."
+            caption="Values are percentage deviation from each runner's own average pace, averaged within band. Read down any column to compare how each finishing band paced the segment."
           >
             <PaceHeatmap />
           </Figure>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+            Like we saw earlier, the pattern becomes more pronounced as finishing time increases. Slower runners tend to bank more time early in the race, then experience a sharper slowdown 
+            from around 25 to 30 km onwards. Even the fastest runners slow late in the course, but the change is much less severe. The relationship between finishing time and pacing consistency is pretty obvious, 
+            with stronger performances generally associated with a more even distribution of effort across the race.
+
+          </p>
         </Section>
 
         <Section id="faststart" num="05" title="What a fast start costs -- THIS CHART IS WRONG - AXES">
@@ -269,15 +283,9 @@ export default function App() {
         <Section id="splits" num="06" title="Most runners positive-split">
           <p className="max-w-[646px]">Placeholder copy.</p>
 
-          <Figure full
-            title="Second half minus first half, by finishing band"
-            meta="1-minute bins"
-            caption="Everything right of the vertical line is a positive split. The distribution both widens and shifts right as the bands slow."
-          >
-            <PositiveSplitByBand />
-          </Figure>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-9 max-w-[900px] my-8">
+
           <Figure
             title="Second half minus first"
             meta="2.5-min bins"
@@ -293,6 +301,13 @@ export default function App() {
             <NegSplitRate />
           </Figure>
         </div>
+                  <Figure full
+            title="Second half minus first half, by finishing band"
+            meta="1-minute bins"
+            caption="Everything right of the vertical line is a positive split. The distribution both widens and shifts right as the bands slow."
+          >
+            <PositiveSplitByBand />
+          </Figure>
         </Section>
 
         <Section id="method" num="08" title="Methods & Caveats">

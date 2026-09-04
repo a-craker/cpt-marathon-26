@@ -45,7 +45,7 @@ export default function PaceHeatmap() {
             <text x={M.l + i * cw + cw / 2} y={M.t + b * ch + ch / 2 + 3.5}
               textAnchor="middle" className="font-mono" fontSize="10.5" fontWeight="500"
               fill={Math.abs(dev) > 0.10 ? "#F3F5F7" : "var(--color-ink)"}>
-              {Math.round(dev * 100)}
+              {`${Math.round(dev * 100)}%`}
             </text>
           </g>
         ))
