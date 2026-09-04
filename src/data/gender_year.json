@@ -1,0 +1,122 @@
+[
+  {
+    "year": 2012,
+    "gender": "Female",
+    "n": 458
+  },
+  {
+    "year": 2012,
+    "gender": "Male",
+    "n": 1069
+  },
+  {
+    "year": 2013,
+    "gender": "Female",
+    "n": 592
+  },
+  {
+    "year": 2013,
+    "gender": "Male",
+    "n": 1125
+  },
+  {
+    "year": 2014,
+    "gender": "Female",
+    "n": 1093
+  },
+  {
+    "year": 2014,
+    "gender": "Male",
+    "n": 2115
+  },
+  {
+    "year": 2015,
+    "gender": "Female",
+    "n": 1463
+  },
+  {
+    "year": 2015,
+    "gender": "Male",
+    "n": 2807
+  },
+  {
+    "year": 2016,
+    "gender": "Female",
+    "n": 2198
+  },
+  {
+    "year": 2016,
+    "gender": "Male",
+    "n": 3919
+  },
+  {
+    "year": 2017,
+    "gender": "Female",
+    "n": 2805
+  },
+  {
+    "year": 2017,
+    "gender": "Male",
+    "n": 5199
+  },
+  {
+    "year": 2018,
+    "gender": "Female",
+    "n": 2612
+  },
+  {
+    "year": 2018,
+    "gender": "Male",
+    "n": 5059
+  },
+  {
+    "year": 2021,
+    "gender": "Female",
+    "n": 2191
+  },
+  {
+    "year": 2021,
+    "gender": "Male",
+    "n": 3821
+  },
+  {
+    "year": 2022,
+    "gender": "Female",
+    "n": 3335
+  },
+  {
+    "year": 2022,
+    "gender": "Male",
+    "n": 5864
+  },
+  {
+    "year": 2023,
+    "gender": "Female",
+    "n": 4658
+  },
+  {
+    "year": 2023,
+    "gender": "Male",
+    "n": 8678
+  },
+  {
+    "year": 2024,
+    "gender": "Female",
+    "n": 5749
+  },
+  {
+    "year": 2024,
+    "gender": "Male",
+    "n": 10752
+  },
+  {
+    "year": 2026,
+    "gender": "Female",
+    "n": 6921
+  },
+  {
+    "year": 2026,
+    "gender": "Male",
+    "n": 11602
+  }
+]

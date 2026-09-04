@@ -1,0 +1,170 @@
+[
+  {
+    "year": 2012,
+    "gender": "Female",
+    "total_finishers": 458,
+    "sub3_finishers": 4,
+    "pct_sub3": 0.0087
+  },
+  {
+    "year": 2012,
+    "gender": "Male",
+    "total_finishers": 1069,
+    "sub3_finishers": 70,
+    "pct_sub3": 0.0655
+  },
+  {
+    "year": 2013,
+    "gender": "Female",
+    "total_finishers": 592,
+    "sub3_finishers": 4,
+    "pct_sub3": 0.0068
+  },
+  {
+    "year": 2013,
+    "gender": "Male",
+    "total_finishers": 1125,
+    "sub3_finishers": 65,
+    "pct_sub3": 0.0578
+  },
+  {
+    "year": 2014,
+    "gender": "Female",
+    "total_finishers": 1093,
+    "sub3_finishers": 13,
+    "pct_sub3": 0.0119
+  },
+  {
+    "year": 2014,
+    "gender": "Male",
+    "total_finishers": 2115,
+    "sub3_finishers": 136,
+    "pct_sub3": 0.0643
+  },
+  {
+    "year": 2015,
+    "gender": "Female",
+    "total_finishers": 1463,
+    "sub3_finishers": 16,
+    "pct_sub3": 0.0109
+  },
+  {
+    "year": 2015,
+    "gender": "Male",
+    "total_finishers": 2807,
+    "sub3_finishers": 132,
+    "pct_sub3": 0.047
+  },
+  {
+    "year": 2016,
+    "gender": "Female",
+    "total_finishers": 2198,
+    "sub3_finishers": 18,
+    "pct_sub3": 0.0082
+  },
+  {
+    "year": 2016,
+    "gender": "Male",
+    "total_finishers": 3919,
+    "sub3_finishers": 183,
+    "pct_sub3": 0.0467
+  },
+  {
+    "year": 2017,
+    "gender": "Female",
+    "total_finishers": 2805,
+    "sub3_finishers": 16,
+    "pct_sub3": 0.0057
+  },
+  {
+    "year": 2017,
+    "gender": "Male",
+    "total_finishers": 5199,
+    "sub3_finishers": 218,
+    "pct_sub3": 0.0419
+  },
+  {
+    "year": 2018,
+    "gender": "Female",
+    "total_finishers": 2612,
+    "sub3_finishers": 27,
+    "pct_sub3": 0.0103
+  },
+  {
+    "year": 2018,
+    "gender": "Male",
+    "total_finishers": 5059,
+    "sub3_finishers": 275,
+    "pct_sub3": 0.0544
+  },
+  {
+    "year": 2021,
+    "gender": "Female",
+    "total_finishers": 2191,
+    "sub3_finishers": 41,
+    "pct_sub3": 0.0187
+  },
+  {
+    "year": 2021,
+    "gender": "Male",
+    "total_finishers": 3821,
+    "sub3_finishers": 353,
+    "pct_sub3": 0.0924
+  },
+  {
+    "year": 2022,
+    "gender": "Female",
+    "total_finishers": 3335,
+    "sub3_finishers": 14,
+    "pct_sub3": 0.0042
+  },
+  {
+    "year": 2022,
+    "gender": "Male",
+    "total_finishers": 5864,
+    "sub3_finishers": 225,
+    "pct_sub3": 0.0384
+  },
+  {
+    "year": 2023,
+    "gender": "Female",
+    "total_finishers": 4658,
+    "sub3_finishers": 21,
+    "pct_sub3": 0.0045
+  },
+  {
+    "year": 2023,
+    "gender": "Male",
+    "total_finishers": 8678,
+    "sub3_finishers": 386,
+    "pct_sub3": 0.0445
+  },
+  {
+    "year": 2024,
+    "gender": "Female",
+    "total_finishers": 5749,
+    "sub3_finishers": 21,
+    "pct_sub3": 0.0037
+  },
+  {
+    "year": 2024,
+    "gender": "Male",
+    "total_finishers": 10752,
+    "sub3_finishers": 470,
+    "pct_sub3": 0.0437
+  },
+  {
+    "year": 2026,
+    "gender": "Female",
+    "total_finishers": 6921,
+    "sub3_finishers": 38,
+    "pct_sub3": 0.0055
+  },
+  {
+    "year": 2026,
+    "gender": "Male",
+    "total_finishers": 11602,
+    "sub3_finishers": 738,
+    "pct_sub3": 0.0636
+  }
+]

@@ -9,6 +9,8 @@ import StatusBar from "./charts/StatusBar";
 import FinishHistogram from "./charts/FinishHistogram";
 import CategoryPyramid from "./charts/CategoryPyramid";
 import CountryFlagBars from "./charts/CountryFlagBars";
+import GenderParticipation from "./charts/GenderParticipation";
+import Sub3ByYear from "./charts/Sub3ByYear";
 // SECTION 2
 import PercentileCurve from "./charts/PercentileCurve";
 // SECTION 3
@@ -139,11 +141,41 @@ export default function App() {
             <FinishHistogram />
           </Figure>
 
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          Breaking down the finisher distribution by gender and age category, the field is predominantly male, with men accounting for 63% of all finishers. The largest single group is men under the age of 40, 
+          classified in the Senior category, who represent just under a quarter of the field at 24%.
+          </p>
+
           <Figure
             title="Finishers by age category and gender"
             caption="Categories ordered youngest to oldest."
           >
             <CategoryPyramid />
+          </Figure>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          Across the available Cape Town Marathon finisher data from 2012 through to 2026, the gender composition has remained fairly stable, with men accounting for around 62% to 70% of finishers. 
+          Participation itself has changed more significantly, growing strongly over the period despite a decline between 2018 and 2021, before rising again from 2022 onwards.
+          </p>
+
+          <Figure
+            title="Line chart of gender participation across yeares"
+            caption="There is currently no available finish data for 2019; with the marathon not taking place in 2020, and 2025"
+          >
+            <GenderParticipation />
+          </Figure>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          The sub 3 data shows a more pronounced difference between genders. Among men, the share finishing under three hours is typically between 4% and 6.5%, compared with roughly 0.4% to 1.2% 
+          among women. The clearest departure comes in 2021, when 9.2% of male finishers broke three hours, well above any other year in the dataset. Given the smaller field that year, this points to 
+          a notably stronger concentration of faster male runners (that may have been doing some extensive training over COVID).
+          </p>
+
+          <Figure
+            title="The proportion of each year's finishing genders that ran a sub 3"
+            caption="There is currently no available finish data for 2019; with the marathon not taking place in 2020, and 2025"
+          >
+            <Sub3ByYear />
           </Figure>
 
         </Section>
