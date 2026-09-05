@@ -33,10 +33,8 @@ const SECTIONS = [
   { id: "placing", num: "02", title: "Where your time would have placed you" },
   { id: "pacing", num: "03", title: "How the race was actually run" },
   { id: "wall", num: "04", title: "Finding the wall" },
-  { id: "faststart", num: "05", title: "What a fast start costs" },
-  { id: "splits", num: "06", title: "Most runners positive-split" },
-  { id: "barriers", num: "07", title: "Chasing round numbers" },
-  { id: "method", num: "08", title: "Method & caveats" },
+  { id: "splits", num: "05", title: "Most runners positive-split" },
+  { id: "method", num: "06", title: "Method & caveats" },
 ];
 
 export default function App() {
@@ -71,7 +69,7 @@ export default function App() {
 
         <ol className="max-w-none mb-8 space-y-3 list-decimal pl-12 text-[18px] leading-normal text-neutral-900">
           <li>
-            Who turned up on race day? A look at starters, non starters and DNFs, alongside the demographic profile of the finishing field and the overall distribution of finishing times.
+            Who turned up on race day? A look at starters, non starters and DNFs, alongside the demographic profile of the finishing field, the distribution of finishing times and how participation has shifted over past editions of the marathon.
           </li>
           <li>
             How a given finishing time would have placed you relative to the field, and the goal times runners were chasing.
@@ -80,7 +78,7 @@ export default function App() {
             How the race was actually run across different finishing time groups.
           </li>
           <li>
-            Where the marathon wall begins to show up in the data, and what an aggressive start tends to cost later.
+            A quick look into where the marathon wall begins to show up in the data, and what an aggressive start tends to cost later.
           </li>
           <li>
             Which runners paced their races particularly well.
@@ -269,18 +267,7 @@ export default function App() {
           </p>
         </Section>
 
-        <Section id="faststart" num="05" title="What a fast start costs -- THIS CHART IS WRONG - AXES">
-          <p className="max-w-[646px]">Placeholder copy.</p>
-          <Figure
-            title="First 5 km pace vs. second-half penalty"
-            meta="Binned means, IQR shaded"
-            caption="How hard runners attacked the first 5 km against how much slower their second half was than their first. The shaded band is the middle 50% of outcomes."
-          >
-            <CostOfFastStart />
-          </Figure>
-        </Section>
-
-        <Section id="splits" num="06" title="Most runners positive-split">
+        <Section id="splits" num="05" title="Most runners positive-split">
           <p className="text-[18px] leading-normal max-w-none mb-6">
           A negative split means running the second half of the marathon faster than the first, and is generally a useful measure of pacing control. At this year’s Cape Town Marathon, 
           just <strong>5.4%</strong> of finishers managed it, equivalent to 992 runners.
@@ -331,7 +318,7 @@ export default function App() {
 
         </Section>
 
-        <Section id="method" num="08" title="Methods & Caveats">
+        <Section id="method" num="06" title="Methods & Caveats">
         </Section>
       </main>
     </div>
