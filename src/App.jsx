@@ -43,13 +43,15 @@ export default function App() {
       <SectionNav sections={SECTIONS} />
       <Masthead />
       <main className="max-w-[1060px] mx-auto px-6 pb-24">
-        <h1 className="font-display font-extrabold text-[clamp(38px,7.2vw,74px)] leading-[.97] tracking-[-.022em] mb-6 max-w-[15ch]">
-          <em className="not-italic text-flare">Race Analysis:</em> 2026 Cape Town Marathon
-        </h1>
+        <h1 className="font-display font-extrabold text-[clamp(34px,6.2vw,64px)] leading-[.97] tracking-[-.022em] mb-6 max-w-[15ch]">
+          <span className="text-[#000028]">The 2026 Cape Town Marathon</span>{" "}
+          <span className="text-[#00c8ff]">by the Numbers</span>
+        </h1>        
         <p className="font-mono text-[11.5px] tracking-[.2em] uppercase text-flare mb-5">
           Written By Aidan Craker
         </p>
       <section className="max-w-5xl mx-auto px-6 py-12">
+        <StatStrip />
         <p className="text-[18px] leading-normal text-black max-w-none mb-10">
           The 2026 Cape Town Marathon was a weekend full of notable results. Cape Town was named the eighth Abbott World Marathon Major, Mohammed Esa ran the fastest marathon ever recorded on 
           African soil, and the depth of the men's race was equally significant, with the first ten finishers all running faster than the previous course record. On top of that, more than 18,500 
@@ -75,7 +77,7 @@ export default function App() {
             How a given finishing time would have placed you relative to the field, and the goal times runners were chasing.
           </li>
           <li>
-            How the race was actually run across different finishing time groups.
+            How the race was actually run across different finishing time groups, breaking down the paces across finishing bands.
           </li>
           <li>
             A quick look into where the marathon wall begins to show up in the data, and what an aggressive start tends to cost later.
@@ -90,7 +92,6 @@ export default function App() {
         </p>
       </section>
 
-        <StatStrip />
 
         <Section id="turnout"   num="01" title="Who actually turned up">
           <p className="text-[18px] leading-normal max-w-none mb-6">
@@ -112,7 +113,7 @@ export default function App() {
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
             Of those 18,523 finishers in this year's Cape Town Marathon, South Africans made up two-thirds, but the remaining <strong>34%</strong> came from 138 countries across all parts of the world.
-            One runner was even registered in Antarctica. With Cape Town securing status as the 8th Abbott World Marathon Major, those non-South African numbers should climb sharply by the 2027 edition.
+            One runner was even registered in Antarctica. With Cape Town securing it's status as the 8th Abbott World Marathon Major, we can expect those non-South African numbers to climb sharply by next year's edition of the race.
             The chart below lists finishers by country in descending order, which you can flip through.
           </p>
 
@@ -127,7 +128,7 @@ export default function App() {
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
             Looking at the high level finish times through a distribution of runners in 5 minute bins, across all genders and finish time categories, three notable spikes appear around the round numbers
-            most of us chase as marathon goals, with the sharpest jump at the 4 hour mark (we'll look into this in a bit more in the next section). The median finish across all finishers was <strong>4:33:09</strong>, just
+            most of us chase as marathon goals, with the sharpest jump at the 4 hour mark (we'll look into this in a bit more in the next section). The median finish time across all those that finished the race was <strong>4:33:09</strong>, just
             20 seconds off the <strong>4:32:49</strong> average time to run a marathon that <a href="https://www.brooksrunning.com/en_es/blog/advice-tips/average-marathon-time.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">RunRepeat</a> compiled from 107.9 million race results.
           </p>
 
@@ -140,7 +141,7 @@ export default function App() {
           </Figure>
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
-          Breaking down the finisher distribution by gender and age category, the field is predominantly male, with men accounting for 63% of all finishers. The largest single group is men under the age of 40, 
+          Breaking down the finisher distribution by gender and age category, we can clearly see that the field is predominantly male, accounting for 63% of all finishers. The largest single group is men under the age of 40, 
           classified in the Senior category, who represent just under a quarter of the field at 24%.
           </p>
 
@@ -153,7 +154,7 @@ export default function App() {
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
           Across the available Cape Town Marathon finisher data from 2012 through to 2026, the gender composition has remained fairly stable, with men accounting for around 62% to 70% of finishers. 
-          Participation itself has changed more significantly, growing strongly over the period despite a decline between 2018 and 2021, before rising again from 2022 onwards.
+          Participation itself has changed more significantly, growing strongly over the period despite a decline from 2018 to 2021, before rising again from 2022 onwards.
           </p>
 
           <Figure
@@ -164,9 +165,14 @@ export default function App() {
           </Figure>
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
-          The sub 3 data shows a more pronounced difference between genders. Among men, the share finishing under three hours is typically between 4% and 6.5%, compared with roughly 0.4% to 1.2% 
-          among women. Remarkably in 2021, 9.2% of male finishers broke three hours, well above any previous year. Given the smaller field that year, this points to 
-          a notably stronger concentration of faster male runners (that may have been doing some extensive training over COVID).
+          Given the blistering paces and records set at this year’s race, I wanted to see how fast this year's field compared with previous editions. To do that, I looked at the proportion of male and female 
+          finishers in each year who ran under three hours, which you can see by the size of each bar below. 
+          </p>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          Among men, the share finishing under three hours is typically between 4% and 6.5%, 
+          compared with roughly 0.4% to 1.2% among women. Remarkably in 2021, 9.2% of male finishers broke three hours, well above any previous year. Given the smaller field that year, this points to 
+          a notably stronger concentration of faster male runners (that may have been doing some extensive training over COVID). 
           </p>
 
           <Figure
@@ -207,7 +213,7 @@ export default function App() {
           <Figure
             title="Finish times, 1-minute bins"
             meta="Red = 2 min before a barrier"
-            caption="Dashed lines mark the classic barriers. The red bars are the runners who found something in the last two minutes."
+            caption="Dashed lines our finishing bands. The red bars are the runners who found something in the last two minutes."
           >
             <BarrierBunching />
           </Figure>
@@ -221,35 +227,36 @@ export default function App() {
         <Section id="pacing" num="03" title="How the race was actually run">
           <p className="text-[18px] leading-normal max-w-none mb-6">
             Across all 18,523 finishers, 17,671 had every split recorded across the entire race. The <strong>actual pace</strong> chart shows the average segment pace for each 
-            finishing band in minutes per kilometre, while the <strong>normalised</strong> chart shows each segment as a <strong>percentage of that group's overall average pace</strong>, making 
-            it easier to compare pacing patterns across groups.
+            finishing band in minutes per kilometre, while the <strong>normalised</strong> chart shows how each segment compares with each runner's own average race pace, averaged within the finishing band. 
+            This makes it easier to compare pacing patterns across groups with very different finishing times.
           </p>
           <Figure
             title="Segment pace by finishing band"
             meta={/* mode-aware meta lives in the toggle chart's axis label instead */ "six bands"}
-            caption="Switch to actual pace and the bands separate vertically but the shapes become hard to compare — which is why the normalised view is the one worth publishing."
+            caption="Switch between actual and normalised pace using the button above"
           >
             <SegmentByBand />
           </Figure>
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            Across every finishing band, the first 20km was run quicker than average, followed by a gradual slowdown that becomes much sharper after 25km. This 
-            effect is strongest among the slower groups, with the 5:00+ runners moving from around 87% of their average pace in the opening 5km to roughly 112% between 
+            Across every finishing band, the first 20km was run quicker than average, followed by a gradual decline in pace that becomes much sharper after 25km. This 
+            is visible among slower groups, with the 5:00+ runners moving from around 87% of their average pace in the opening 5km to roughly 112% between 
             30 and 35km.
           </p>
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            The faster groups were more consistent, but on average, no finishing segment escaped the late slowdown. By the final segment, all six bands had converged to roughly 107% to 109% 
+            The faster groups were more consistent, but on average, no finishing segment escaped that late slowdown. By the final segment, all six bands had converged to roughly 107% to 109% 
             of their own average pace, suggesting that the final few kilometre segments imposed a similar relative cost across the field.
           </p>
         </Section>
 
         <Section id="wall" num="04" title="Finding the wall">
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            Every marathon runner has heard of the infamous wall, the point where holding pace suddenly becomes much harder. To see where that shows up here, I compared each runner's pace across different 
+            Every marathon runner has heard of the infamous wall, the point where maintaining that original goal pace suddenly becomes much harder or even goes straight out the window. To see where that shows up here, I compared each runner's pace across different 
             sections of the course with their own average pace for the race - a more telling way to see the wall than the previous normalised chart.
           </p>
           <p className="text-[18px] leading-normal max-w-none mb-6">
-            This chart compares how each finishing time band moves through the race relative to its own average pace. Negative values indicate sections run faster than average, while positive 
-            values show where runners begin to slow. For example, runners finishing between 4:30 and 5:00 are around 8% faster than their average pace between 10 and 15 km, but 12% slower between 30 and 35 km.
+            This chart compares how each finishing time band moves through the race relative to its own average pace. Each cell shows the average percentage deviation from a runner’s overall race pace for that segment, averaged across all runners in the finishing band. 
+            Negative (seen in blue) values indicate sections run faster than average, while positive (seen in red) values show where runners begin to slow. For example, runners finishing between 4:30 and 5:00 are around 8% faster than their average pace between 10 and 15 km, 
+            but <strong>12% slower</strong> between 30 and 35 km.
           </p>
 
           <Figure
@@ -269,13 +276,13 @@ export default function App() {
 
         <Section id="splits" num="05" title="Most runners positive-split">
           <p className="text-[18px] leading-normal max-w-none mb-6">
-          A negative split means running the second half of the marathon faster than the first, and is generally a useful measure of pacing control. At this year’s Cape Town Marathon, 
+          A negative split means running the second half of the marathon faster than the first, and is generally a useful measure of pacing control - generally translating to finishing strong. At this year’s Cape Town Marathon, 
           just <strong>5.4%</strong> of finishers managed it, equivalent to 992 runners.
           </p>
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
-          Breaking those runners down by finishing band shows a clear relationship between pace and negative split rate. Around 13.5% of sub 3 finishers ran a negative split, compared with 
-          just 1.3% of those finishing in more than five hours. Women also recorded a higher negative split rate than men in almost every finishing band, with the largest gap among sub 3 runners, 
+          Breaking those runners down by finishing band shows a clear relationship between pace and negative split rate. Around <strong>13.5%</strong> of sub 3 finishers ran a negative split, compared with 
+          just <strong>1.3%</strong> of those finishing in more than five hours. Women also recorded a higher negative split rate than men in almost every finishing band, with the largest gap among sub 3 runners, 
           where 24% of women achieved one compared with 13% of men. This suggests that, particularly among the fastest runners, women were more likely to distribute their effort evenly and leave 
           enough in reserve for the second half.
           </p>
@@ -285,14 +292,14 @@ export default function App() {
           <Figure
             title="Second half minus first"
             meta="2.5-min bins"
-            caption="Blue ran the second half marathon faster (negative split)"
+            caption="The distribution of runners based on the difference between their second half and first half marathon times."
           >
             <SplitDifferential />
           </Figure>
           <Figure
             title="Negative-split rate"
             meta="By band and gender"
-            caption="The faster the band, the better the discipline — in both genders."
+            caption="Each bar shows the share of men or women within a finishing time category who completed the race with a negative split."
           >
             <NegSplitRate />
           </Figure>

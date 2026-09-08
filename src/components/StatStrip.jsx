@@ -3,14 +3,14 @@ import summary from "../data/summary.json";
 
 const stats = [
   [summary.finishers.toLocaleString(), "Finishers"],
-  [fmtHMS(summary.median_sec), "Median finish"],
-  [pct(summary.neg_split), "Negative split"],
-  [`${summary.fade_km} km`, "Median fade point"],
+  [`${summary.countries}`, "different countries"],
+  [fmtHMS(summary.median_sec), "Median finish time"],
+  [pct(summary.neg_split), "of Finishers Ran a Negative split"],
 ];
 
 export default function StatStrip() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-rule border-y border-rule mb-20">
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-rule border-y border-rule mb-8">
       {stats.map(([val, label]) => (
         <div key={label} className="bg-paper px-4 py-5">
           <b className="block font-display font-bold text-[clamp(24px,3.4vw,34px)] tracking-tight leading-none">
