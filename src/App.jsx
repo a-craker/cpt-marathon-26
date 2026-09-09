@@ -53,7 +53,7 @@ export default function App() {
       <section className="max-w-5xl mx-auto px-6 py-12">
         <StatStrip />
         <p className="text-[18px] leading-normal text-black max-w-none mb-10">
-          The 2026 Cape Town Marathon was a weekend full of notable results. Cape Town was named the eighth Abbott World Marathon Major, Mohammed Esa ran the fastest marathon ever recorded on 
+          The 2026 Cape Town Marathon was was one of the most significant in the race's history. Cape Town was named the eighth Abbott World Marathon Major, Mohammed Esa ran the fastest marathon ever recorded on 
           African soil, and the depth of the men's race was equally significant, with the first ten finishers all running faster than the previous course record. On top of that, more than 18,500 
           runners finished the marathon. With so much happening in a single edition of the race, I wanted to look more closely at what the results reveal about the field as a whole.
         </p>
@@ -158,7 +158,7 @@ export default function App() {
           </p>
 
           <Figure
-            title="Line chart of gender participation across yeares"
+            title="Line chart of gender participation across years"
             caption="There is currently no available finish data for 2019; with the marathon not taking place in 2020, and 2025"
           >
             <GenderParticipation />

@@ -4,7 +4,7 @@ export const scaleLinear = ([d0, d1], [r0, r1]) => (v) =>
 export const line = (pts) => pts.map(([x, y]) => `${x},${y}`).join(" ");
 
 export const BAND_PALETTE = [
-  "#14548F", "#3E7AA8", "#7E9E9E", "#C0994F", "#C86A34", "#A82F14",
+  "#123F5A", "#3E7AA8", "#7E9E9E", "#C0994F", "#C86A34", "#A82F14",
 ];
 
 export const BAND_ORDER = [

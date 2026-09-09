@@ -4,7 +4,7 @@ import summary from "../data/summary.json";
 const stats = [
   [summary.finishers.toLocaleString(), "Finishers"],
   [`${summary.countries}`, "different countries"],
-  [fmtHMS(summary.median_sec), "Median finish time"],
+  [fmtHMS(summary.average_sec), "Average finish time"],
   [pct(summary.neg_split), "of Finishers Ran a Negative split"],
 ];
 
