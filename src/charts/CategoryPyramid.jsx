@@ -37,20 +37,38 @@ export default function CategoryPyramid() {
             {/* male, left */}
             <rect x={sx(-r.Male)} y={y} width={sx(0) - sx(-r.Male)} height={bh}
               fill={COLS.Male} opacity="0.85" />
-            <text x={sx(-r.Male) - 7} y={y + bh / 2 + 3.5} textAnchor="end"
-              className="font-mono" fontSize="10.5" fill={COLS.Male}>
-              {r.Male.toLocaleString()}
+            <text 
+            x={sx(-r.Male) - 7} 
+            y={y + bh / 2 + 3.5} 
+            textAnchor="end"
+            className="font-mono" 
+            fontSize="11"
+            fontWeight="700"
+            fill={COLS.Male}>
+            {r.Male.toLocaleString()}
             </text>
             {/* female, right */}
             <rect x={sx(0)} y={y} width={sx(r.Female) - sx(0)} height={bh}
               fill={COLS.Female} opacity="0.85" />
-            <text x={sx(r.Female) + 7} y={y + bh / 2 + 3.5} textAnchor="start"
-              className="font-mono" fontSize="10.5" fill={COLS.Female}>
-              {r.Female.toLocaleString()}
+            <text 
+            x={sx(r.Female) + 7} 
+            y={y + bh / 2 + 3.5} 
+            textAnchor="start"
+            className="font-mono" 
+            fontSize="11"
+            fontWeight="700"
+            fill={COLS.Female}>
+            {r.Female.toLocaleString()}
             </text>
             {/* category label on centre line */}
-            <text x={sx(0)} y={y - 5} textAnchor="middle"
-              className="font-mono" fontSize="10.5" fontWeight="500" fill="var(--color-ink)">
+            <text
+              x={sx(0)}
+              y={y - 5}
+              textAnchor="middle"
+              className="font-mono"
+              fontSize="11.5"
+              fontWeight="700"
+              fill="var(--color-ink)">
               {r.cat}
             </text>
           </g>

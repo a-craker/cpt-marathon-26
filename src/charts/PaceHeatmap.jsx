@@ -43,7 +43,7 @@ export default function PaceHeatmap() {
             <rect x={M.l + i * cw} y={M.t + b * ch}
               width={cw - 1.5} height={ch - 1.5} fill={col(dev)} />
             <text x={M.l + i * cw + cw / 2} y={M.t + b * ch + ch / 2 + 3.5}
-              textAnchor="middle" className="font-mono" fontSize="10.5" fontWeight="500"
+              textAnchor="middle" className="font-mono" fontSize="13.5" fontWeight="500"
               fill={Math.abs(dev) > 0.10 ? "#F3F5F7" : "var(--color-ink)"}>
               {`${Math.round(dev * 100)}%`}
             </text>
@@ -54,7 +54,7 @@ export default function PaceHeatmap() {
       {/* row / column labels */}
       {bands.map((b, i) => (
         <text key={b} x={M.l - 12} y={M.t + i * ch + ch / 2 + 3.5} textAnchor="end"
-          className="font-mono" fontSize="10.5" fontWeight="500" fill="var(--color-ink)">
+          className="font-mono" fontSize="10.5" fontWeight="600" fill="var(--color-ink)">
           {b}
         </text>
       ))}

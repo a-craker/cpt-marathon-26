@@ -5,7 +5,7 @@ export default function Section({ id, num, title, children }) {
         <span className="font-mono text-xs font-semibold tracking-[.1em] text-flare pt-1.5">
           {num}
         </span>
-        <h2 className="font-display font-bold text-[clamp(25px,3.6vw,36px)] leading-tight tracking-tight max-w-[20ch]">
+        <h2 className="font-display font-bold text-[clamp(25px,3.6vw,36px)] leading-tight tracking-tight">
           {title}
         </h2>
       </div>

@@ -5,7 +5,7 @@ const stats = [
   [summary.finishers.toLocaleString(), "Finishers"],
   [`${summary.countries}`, "different countries"],
   [fmtHMS(summary.average_sec), "Average finish time"],
-  [pct(summary.neg_split), "of Finishers Ran a Negative split"],
+  [pct(summary.four_hours), "Finished under 4 hours"],
 ];
 
 export default function StatStrip() {

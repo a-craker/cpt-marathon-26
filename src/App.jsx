@@ -58,9 +58,9 @@ export default function App() {
           runners finished the marathon. With so much happening in a single edition of the race, I wanted to look more closely at what the results reveal about the field as a whole.
         </p>
         <Figure
-          title="Every dot represents one of the 18,523 finishers"
+          title="Census grid of all finishers by position"
           meta="18,523 finishers"
-          caption="Each dot is coloured according to its finishing time segment, with callouts for a few notable runners: race winner Huseyidin Mohamed Esa, who ran the fastest marathon ever recorded on African soil; Eliud Kipchoge, the GOAT; women’s winner Dera Dida Yami; and two friends of mine who also took on the marathon, Finn and Lau."
+          caption="Every dot represents one of the 18,523 finishers and is coloured according to its finishing time segment, with callouts for a few notable runners: race winner Huseyidin Mohamed Esa, who ran the fastest marathon ever recorded on African soil; Eliud Kipchoge, the GOAT; women’s winner Dera Dida Yami; and two friends of mine who also took on the marathon, Finn and Lau."
         >
           <CensusGrid />
         </Figure>
@@ -113,7 +113,7 @@ export default function App() {
 
           <p className="text-[18px] leading-normal max-w-none mb-6">
             Of those 18,523 finishers in this year's Cape Town Marathon, South Africans made up two-thirds, but the remaining <strong>34%</strong> came from 138 countries across all parts of the world.
-            One runner was even registered in Antarctica. With Cape Town securing it's status as the 8th Abbott World Marathon Major, we can expect those non-South African numbers to climb sharply by next year's edition of the race.
+            One runner was even registered in Antarctica. With Cape Town securing it's status as the 8th Abbott World Marathon Major, we can expect those non-South African numbers to climb in next year's edition of the race.
             The chart below lists finishers by country in descending order, which you can flip through.
           </p>
 
@@ -323,6 +323,18 @@ export default function App() {
           many runners are giving away 20 to 30 minutes in the second half, and the spread is far wider. Faster finishing groups lose less time, while the slower groups experience a much more varied second half.
           </p>
 
+        </Section>
+
+        <Section>
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          The finishing results and splits data offer plenty of insights into the scale, pace and shape of the field at the 2026 Cape Town Marathon, but they cannot capture the cramps, smiles, and cheers 
+          that played out on the day. I got to see some of that first hand from Beach Road in the final 10 km, on the infamous loop of death.
+          </p>
+
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          Hopefully this blog brought back a few memories from your own race, good or bad, or simply gave you a different way of looking at the day. If anything in the analysis surprised you, or if there 
+          is something else you think is worth digging into, I would love to hear from you.
+          </p>
         </Section>
 
         <Section id="method" num="06" title="Methods & Caveats">

@@ -3,7 +3,7 @@ import census from "../data/census.json";
 import { BAND_COLS } from "../lib/chart";
 
 const PITCH = 5;    // dot cell, in svg units
-const DOT = 3.2;    // dot itself - the 1.8 difference is the gutter
+const DOT = 2.8;    // dot itself - the 1.8 difference is the gutter
 const HEAD = 58;    // headroom above the grid for the three stacked labels
 const M = { t: 10, r: 12, b: 12, l: 12 };
 const MARK = "var(--color-flare)";
@@ -75,13 +75,13 @@ export default function CensusGrid() {
               patternUnits="userSpaceOnUse"
               patternTransform={`translate(${M.l}, ${gridY0})`}
             >
-              <rect
-                x={(PITCH - DOT) / 2}
-                y={(PITCH - DOT) / 2}
-                width={DOT}
-                height={DOT}
-                fill={BAND_COLS[b] ?? "var(--color-ink)"}
-              />
+            <circle
+              cx={PITCH / 2}
+              cy={PITCH / 2}
+              r={DOT / 2}
+              fill={BAND_COLS[b] ?? "var(--color-ink)"}
+              opacity="0.88"
+            />
             </pattern>
           ))}
         </defs>
