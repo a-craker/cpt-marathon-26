@@ -339,6 +339,20 @@ export default function App() {
         </Section>
 
         <Section id="method" num="06" title="Methods & Caveats">
+          <p className="text-[18px] leading-normal max-w-none mb-6">
+          METHODS AND CAVEATS
+
+CAVEATS
+- Note: SportSplits lists 18,526 finishers, but three finishing positions, <strong>9927</strong>, <strong>14242</strong> and <strong>15708</strong>, are missing from   the underlying records. For the analysis that follows, I therefore use 18,523 as the total number of finishers.
+
+- no historical data for 2019 listed 
+
+- the split data wasn't entirely consistent for each runner for some reason. only 17,671 had enough split information to calculate segment times and negative split rates
+
+METHODS
+
+- 
+          </p>
         </Section>
       </main>
     </div>
