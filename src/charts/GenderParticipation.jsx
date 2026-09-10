@@ -10,6 +10,12 @@ const YEARS = Array.from(
   (_, i) => 2012 + i
 );
 
+const YEAR_NOTES = {
+  2019: "MISSING DATA",
+  2020: "COVID",
+  2025: "CANCELLED",
+};
+
 const formatN = (n) => n.toLocaleString();
 
 export default function GenderParticipation() {
@@ -19,7 +25,9 @@ export default function GenderParticipation() {
     sy,
     yMax,
   } = useMemo(() => {
-    const genders = [...new Set(data.map((d) => d.gender))];
+    const genders = [
+      ...new Set(data.map((d) => d.gender)),
+    ];
 
     const series = genders.map((gender) => ({
       gender,
@@ -32,7 +40,9 @@ export default function GenderParticipation() {
         .sort((a, b) => a.year - b.year),
     }));
 
-    const yRaw = Math.max(...data.map((d) => Number(d.n)));
+    const yRaw = Math.max(
+      ...data.map((d) => Number(d.n))
+    );
 
     // Round upward to a clean 500.
     const yMax = Math.ceil(yRaw / 500) * 500;
@@ -51,12 +61,21 @@ export default function GenderParticipation() {
     };
   }, []);
 
+  const plotH = H - M.t - M.b;
+
+  const yearStep =
+    (W - M.l - M.r) /
+    (YEARS.length - 1);
+
   const yStep =
-    yMax > 10000 ? 2000 :
-    yMax > 5000 ? 1000 :
-    500;
+    yMax > 10000
+      ? 2000
+      : yMax > 5000
+        ? 1000
+        : 500;
 
   const yTicks = [];
+
   for (let v = 0; v <= yMax; v += yStep) {
     yTicks.push(v);
   }
@@ -64,44 +83,20 @@ export default function GenderParticipation() {
   const genderColor = (gender) => {
     const g = String(gender).toLowerCase();
 
-    if (g.startsWith("f")) return "var(--color-signal)";
-    return "var(--color-ink)";
-  };
-
-  /*
-   * Split each gender into uninterrupted year sequences.
-   * e.g.
-   *
-   * 2017, 2018, 2021, 2022
-   *
-   * becomes:
-   *
-   * [2017, 2018]
-   * [2021, 2022]
-   */
-  const splitIntoRuns = (values) => {
-    if (!values.length) return [];
-
-    const runs = [[values[0]]];
-
-    for (let i = 1; i < values.length; i++) {
-      const current = values[i];
-      const previous = values[i - 1];
-
-      if (current.year === previous.year + 1) {
-        runs[runs.length - 1].push(current);
-      } else {
-        runs.push([current]);
-      }
+    if (g.startsWith("f")) {
+      return "var(--color-signal)";
     }
 
-    return runs;
+    return "var(--color-ink)";
   };
 
   const linePath = (values) =>
     values
-      .map((d, i) =>
-        `${i === 0 ? "M" : "L"} ${sx(d.year)} ${sy(d.n)}`
+      .map(
+        (d, i) =>
+          `${i === 0 ? "M" : "L"} ${sx(
+            d.year
+          )} ${sy(d.n)}`
       )
       .join(" ");
 
@@ -110,6 +105,23 @@ export default function GenderParticipation() {
       viewBox={`0 0 ${W} ${H}`}
       className="block w-full h-auto overflow-visible"
     >
+      {/* Grey backgrounds for exceptional / missing years */}
+      {YEARS.map((year) => {
+        if (!YEAR_NOTES[year]) return null;
+
+        return (
+          <rect
+            key={`background-${year}`}
+            x={sx(year) - yearStep / 2}
+            y={M.t}
+            width={yearStep}
+            height={plotH}
+            fill="var(--color-graphite)"
+            opacity="0.07"
+          />
+        );
+      })}
+
       {/* horizontal rules */}
       {yTicks.map((v) => (
         <g key={v}>
@@ -135,18 +147,18 @@ export default function GenderParticipation() {
         </g>
       ))}
 
-    {/* lines */}
-    {series.map((s) => (
-      <path
-        key={s.gender}
-        d={linePath(s.values)}
-        fill="none"
-        stroke={genderColor(s.gender)}
-        strokeWidth="2"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-    ))}
+      {/* continuous lines */}
+      {series.map((s) => (
+        <path
+          key={s.gender}
+          d={linePath(s.values)}
+          fill="none"
+          stroke={genderColor(s.gender)}
+          strokeWidth="2"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+      ))}
 
       {/* points */}
       {series.map((s) =>
@@ -160,6 +172,37 @@ export default function GenderParticipation() {
           />
         ))
       )}
+
+      {/* Vertical annotations */}
+      {YEARS.map((year) => {
+        const note = YEAR_NOTES[year];
+
+        if (!note) return null;
+
+        const x = sx(year);
+        const y = M.t + plotH / 2;
+
+        return (
+          <text
+            key={`annotation-${year}`}
+            x={x}
+            y={y}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            transform={`rotate(-90 ${x} ${y})`}
+            className="font-mono"
+            fontSize="8.5"
+            fontWeight="600"
+            fill="var(--color-graphite)"
+            opacity="0.65"
+            style={{
+              letterSpacing: ".08em",
+            }}
+          >
+            {note}
+          </text>
+        );
+      })}
 
       {/* x axis */}
       {YEARS.map((year) => (
@@ -179,19 +222,30 @@ export default function GenderParticipation() {
       {/* y axis label */}
       <text
         x={15}
-        y={M.t + (H - M.t - M.b) / 2}
+        y={M.t + plotH / 2}
         textAnchor="middle"
-        transform={`rotate(-90 15 ${M.t + (H - M.t - M.b) / 2})`}
+        transform={`rotate(
+          -90
+          15
+          ${M.t + plotH / 2}
+        )`}
         className="font-mono"
         fontSize="10.5"
         fill="var(--color-ink)"
-        style={{ letterSpacing: ".12em" }}
+        style={{
+          letterSpacing: ".12em",
+        }}
       >
         NUMBER OF RUNNERS
       </text>
 
       {/* inline legend */}
-      <g transform={`translate(${M.l + 8}, ${M.t})`}>
+      <g
+        transform={`translate(
+          ${M.l + 8},
+          ${M.t}
+        )`}
+      >
         {series.map((s, i) => (
           <g
             key={s.gender}
@@ -205,12 +259,14 @@ export default function GenderParticipation() {
               stroke={genderColor(s.gender)}
               strokeWidth="2"
             />
+
             <circle
               cx="9"
               cy="0"
               r="3"
               fill={genderColor(s.gender)}
             />
+
             <text
               x="25"
               y="3.5"

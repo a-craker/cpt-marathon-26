@@ -10,13 +10,22 @@ const YEARS = Array.from(
   (_, i) => 2012 + i
 );
 
+// Chart annotations for years without normal race data.
+const YEAR_NOTES = {
+  2019: "MISSING DATA",
+  2020: "COVID",
+  2025: "CANCELLED",
+};
+
 const pct = (v) => `${(v * 100).toFixed(1)}%`;
 
 export default function Sub3ByYear() {
   const { rows, sy, yMax } = useMemo(() => {
     const rows = YEARS.map((year) => ({
       year,
-      values: data.filter((d) => Number(d.year) === year),
+      values: data.filter(
+        (d) => Number(d.year) === year
+      ),
     }));
 
     const maxPct = Math.max(
@@ -39,6 +48,8 @@ export default function Sub3ByYear() {
   }, []);
 
   const plotW = W - M.l - M.r;
+  const plotH = H - M.t - M.b;
+
   const yearStep = plotW / YEARS.length;
 
   const groupW = Math.min(42, yearStep * 0.72);
@@ -46,11 +57,14 @@ export default function Sub3ByYear() {
   const barW = (groupW - gap) / 2;
 
   const yStep =
-    yMax <= 0.05 ? 0.01 :
-    yMax <= 0.10 ? 0.02 :
-    0.05;
+    yMax <= 0.05
+      ? 0.01
+      : yMax <= 0.10
+        ? 0.02
+        : 0.05;
 
   const yTicks = [];
+
   for (let v = 0; v <= yMax + 1e-9; v += yStep) {
     yTicks.push(v);
   }
@@ -72,6 +86,25 @@ export default function Sub3ByYear() {
       viewBox={`0 0 ${W} ${H}`}
       className="block w-full h-auto overflow-visible"
     >
+      {/* Grey backgrounds for exceptional / missing years */}
+      {rows.map((row, i) => {
+        if (!YEAR_NOTES[row.year]) return null;
+
+        const x = M.l + yearStep * i;
+
+        return (
+          <rect
+            key={`background-${row.year}`}
+            x={x}
+            y={M.t}
+            width={yearStep}
+            height={plotH}
+            fill="var(--color-graphite)"
+            opacity="0.07"
+          />
+        );
+      })}
+
       {/* grid + y axis */}
       {yTicks.map((v) => (
         <g key={v}>
@@ -97,7 +130,7 @@ export default function Sub3ByYear() {
         </g>
       ))}
 
-      {/* bars */}
+      {/* bars + year annotations + year labels */}
       {rows.map((row, i) => {
         const cx =
           M.l +
@@ -110,8 +143,14 @@ export default function Sub3ByYear() {
             genderOrder(b.gender)
         );
 
+        const yearNote = YEAR_NOTES[row.year];
+
+        const annotationY =
+          M.t + plotH / 2;
+
         return (
           <g key={row.year}>
+            {/* bars */}
             {values.map((d, j) => {
               const x =
                 cx -
@@ -122,7 +161,9 @@ export default function Sub3ByYear() {
               const height = sy(0) - y;
 
               return (
-                <g key={`${row.year}-${d.gender}`}>
+                <g
+                  key={`${row.year}-${d.gender}`}
+                >
                   <rect
                     x={x}
                     y={y}
@@ -151,6 +192,27 @@ export default function Sub3ByYear() {
               );
             })}
 
+            {/* Vertical annotation for missing / exceptional years */}
+            {yearNote && (
+              <text
+                x={cx}
+                y={annotationY}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                transform={`rotate(-90 ${cx} ${annotationY})`}
+                className="font-mono"
+                fontSize="8.5"
+                fontWeight="600"
+                fill="var(--color-graphite)"
+                opacity="0.65"
+                style={{
+                  letterSpacing: ".08em",
+                }}
+              >
+                {yearNote}
+              </text>
+            )}
+
             {/* year label */}
             <text
               x={cx}
@@ -169,21 +231,36 @@ export default function Sub3ByYear() {
       {/* y-axis label */}
       <text
         x={15}
-        y={M.t + (H - M.t - M.b) / 2}
+        y={
+          M.t +
+          (H - M.t - M.b) / 2
+        }
         textAnchor="middle"
         transform={`rotate(
-          -90 15 ${M.t + (H - M.t - M.b) / 2}
+          -90
+          15
+          ${
+            M.t +
+            (H - M.t - M.b) / 2
+          }
         )`}
         className="font-mono"
         fontSize="10.5"
         fill="var(--color-ink)"
-        style={{ letterSpacing: ".12em" }}
+        style={{
+          letterSpacing: ".12em",
+        }}
       >
         % OF GENDER FINISHING SUB 3
       </text>
 
       {/* legend */}
-      <g transform={`translate(${M.l + 8}, ${M.t - 15})`}>
+      <g
+        transform={`translate(
+          ${M.l + 8},
+          ${M.t - 15}
+        )`}
+      >
         <g>
           <rect
             x="0"
@@ -193,6 +270,7 @@ export default function Sub3ByYear() {
             fill="var(--color-ink)"
             opacity="0.58"
           />
+
           <text
             x="16"
             y="1"
@@ -213,6 +291,7 @@ export default function Sub3ByYear() {
             fill="var(--color-signal)"
             opacity="0.9"
           />
+
           <text
             x="16"
             y="1"
