@@ -348,6 +348,7 @@ export default function App() {
             </li>
             <li>
               The split data was not entirely consistent for every runner. Only 17,671 finishers had enough split information to calculate segment times and negative split rates, so the remaining 852 were excluded from split-related analyses.
+              That being said, only 34 of the 18,523 runners were missing the a marker at halfway, so negative split rate covered 99.8% of all finishers. 
             </li>
           </ul>
         </Section>
