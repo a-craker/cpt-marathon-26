@@ -227,7 +227,8 @@ export default function App() {
         <Section id="pacing" num="03" title="How the race was actually run">
           <p className="text-[18px] leading-normal max-w-none mb-6">
             Across all 18,523 finishers, 17,671 had every split recorded across the entire race. The <strong>actual pace</strong> chart shows the average segment pace for each 
-            finishing band in minutes per kilometre, while the <strong>normalised</strong> chart shows how each segment compares with each runner's own average race pace, averaged within the finishing band. 
+            finishing band in minutes per kilometre, while the <strong>normalised</strong> chart shows how each segment compares with each runner's own average race pace, averaged within the finishing band; any point below 
+            the black 100% line represents a segment run faster than average pace, while any point above it represents a segment run slower than average pace.
             This makes it easier to compare pacing patterns across groups with very different finishing times.
           </p>
           <Figure
