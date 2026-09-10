@@ -34,7 +34,7 @@ const SECTIONS = [
   { id: "pacing", num: "03", title: "How the race was actually run" },
   { id: "wall", num: "04", title: "Finding the wall" },
   { id: "splits", num: "05", title: "Most runners positive-split" },
-  { id: "method", num: "06", title: "Method & caveats" },
+  { id: "caveats", num: "06", title: "Some caveats" },
 ];
 
 export default function App() {
@@ -88,7 +88,7 @@ export default function App() {
         </ol>
 
         <p className="text-[18px] leading-normal text-black max-w-none">
-          I finish with a brief discussion of the methods used, along with the main limitations and caveats in the data. What follows is a more detailed look at these questions through the results themselves, supported by comparisons and visualisations.
+          I finish with a brief discussion of the main limitations and caveats in the data. What follows is a more detailed look at these questions through the results themselves, supported by comparisons and visualisations.
         </p>
       </section>
 
@@ -98,10 +98,6 @@ export default function App() {
             In an official press release, Cape Town Marathon Media shared that they were expecting 27,000 runners to line up on Sunday, 24 May. SportSplits, however, records 24,268 runners as registered for the marathon. Of those, 5,374, or 22%, did not start, while a further 371 started but did not finish. That leaves 18,523 recorded finishers crossing the line near Green Point Stadium, around 12% more than in 2024.
           </p>
           
-          <p className="w-full max-w-none italic">
-            Note: SportSplits lists 18,526 finishers, but three finishing positions, <strong>9927</strong>, <strong>14242</strong> and <strong>15708</strong>, are missing from the underlying records. For the analysis that follows, I therefore use 18,523 as the total number of finishers.
-          </p>
-
           <Figure
             full
             title="Who was on the results page"
@@ -338,21 +334,22 @@ export default function App() {
           </p>
         </Section>
 
-        <Section id="method" num="06" title="Methods & Caveats">
-          <p className="text-[18px] leading-normal max-w-none mb-6">
-          METHODS AND CAVEATS
-
-CAVEATS
-- Note: SportSplits lists 18,526 finishers, but three finishing positions, <strong>9927</strong>, <strong>14242</strong> and <strong>15708</strong>, are missing from   the underlying records. For the analysis that follows, I therefore use 18,523 as the total number of finishers.
-
-- no historical data for 2019 listed 
-
-- the split data wasn't entirely consistent for each runner for some reason. only 17,671 had enough split information to calculate segment times and negative split rates
-
-METHODS
-
-- 
+        <Section id="caveats" num="06" title="Caveats">
+          <p className="text-[18px] leading-normal text-black max-w-none mb-6">
+            A few caveats are worth noting:
           </p>
+
+          <ul className="max-w-none mb-8 space-y-3 list-disc pl-12 text-[18px] leading-normal text-neutral-900">
+            <li>
+              SportSplits lists 18,526 finishers, but three finishing positions, <strong>9927</strong>, <strong>14242</strong> and <strong>15708</strong>, are missing from the underlying records. For the analysis above, I therefore use 18,523 as the total number of finishers.
+            </li>
+            <li>
+              Unfortunately, there is no publicly available results data for the 2019 marathon, so it has been excluded from the analysis.
+            </li>
+            <li>
+              The split data was not entirely consistent for every runner. Only 17,671 finishers had enough split information to calculate segment times and negative split rates, so the remaining 852 were excluded from split-related analyses.
+            </li>
+          </ul>
         </Section>
       </main>
     </div>
