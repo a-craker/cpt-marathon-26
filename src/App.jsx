@@ -44,8 +44,8 @@ export default function App() {
       <Masthead />
       <main className="max-w-[1060px] mx-auto px-6 pb-24">
         <h1 className="font-display font-extrabold text-[clamp(34px,6.2vw,64px)] leading-[.97] tracking-[-.022em] mb-6 max-w-[15ch]">
-          <span className="text-[#000028]">The 2026 Cape Town Marathon</span>{" "}
-          <span className="text-[#00c8ff]">by the Numbers</span>
+          <span className="text-[#0A3361]">The 2026 Cape Town Marathon</span>{" "}
+          <span className="text-[#88AE7B]">by the Numbers</span>
         </h1>        
         <p className="font-mono text-[11.5px] tracking-[.2em] uppercase text-flare mb-5">
           Written By Aidan Craker
